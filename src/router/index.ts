@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 // Make sure the file exists at this path, or update the path if necessary
-// @ts-expect-error: no declaration file for .vue imports
+
 import Home from '../views/Home.vue'
 
 const routes = [

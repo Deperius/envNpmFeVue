@@ -18,12 +18,11 @@
 </template>
 
 <script setup lang="ts">
-// @ts-expect-error: no declaration file for .vue imports
 import Navbar from './Components/Navbar.vue'
-// @ts-expect-error: no declaration file for .vue imports
+
 import Hero from './Components/Hero.vue'
 import About from './Components/About.vue'
-// @ts-expect-error: no declaration file for .vue imports
+
 import Footer from './Components/Footer.vue'
 </script>
 <style scoped></style>
