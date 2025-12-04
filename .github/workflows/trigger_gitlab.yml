@@ -6,14 +6,22 @@ on:
       - main
 
 jobs:
-  trigger:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger GitLab
+      - uses: actions/checkout@v3
+      - name: Build project
+        run: echo "Building project..."
+
+  trigger-gitlab:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Trigger GitLab pipeline
         run: |
           curl -X POST \
-            -F token=glptt-h3NHqY2QeJsYrw-Y-1bH \
-            -F ref=main \
-            https://gitlab.com/api/v4/projects/76876534/trigger/pipeline
+               -F token=$GITLAB_TRIGGER_TOKEN \
+               -F ref=main \
+               https://gitlab.com/api/v4/projects/76876534/trigger/pipeline
         env:
-          GITLAB_TRIGGER_TOKEN: glptt-h3NHqY2QeJsYrw-Y-1bH
+          GITLAB_TRIGGER_TOKEN: ${{ secrets.GITLAB_TRIGGER_TOKEN }}
