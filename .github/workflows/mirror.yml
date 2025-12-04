@@ -1,0 +1,28 @@
+name: Mirroring to GitLab
+
+on:
+  push:
+    # This ensures the workflow runs whenever you push code to any branch
+    branches:
+      - main 
+      # You can list other branches here, like 'develop'
+  delete:
+    # This ensures branch/tag deletions are also mirrored
+
+jobs:
+  mirror_to_gitlab:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 # Fetch all history for proper mirroring
+
+    - name: Mirror to GitLab
+      uses: pixta-dev/repository-mirroring-action@v1
+      with:
+        # Replace 'your_gitlab_username' and 'your_gitlab_repo' with your actual details
+        target_repo_url: git@gitlab.com:jhonsgroup/test.git
+
+        # This is where you use the secret you created in Phase 2
+        ssh_private_key: ${{ secrets.GITLAB_ACCESS_TOKEN }} 
