@@ -1,0 +1,19 @@
+name: Trigger GitLab Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger GitLab
+        run: |
+          curl -X POST \
+            -F token=glptt-h3NHqY2QeJsYrw-Y-1bH \
+            -F ref=main \
+            https://gitlab.com/api/v4/projects/76876534/trigger/pipeline
+        env:
+          GITLAB_TRIGGER_TOKEN: glptt-h3NHqY2QeJsYrw-Y-1bH
