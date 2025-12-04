@@ -1,6 +1,6 @@
 # envNpmFeVue
 
-This template should help get you started developing with Vue 3 in Vite.
+This is the frontend of the coffee shop store. It was used Vue default template
 
 ## Recommended IDE Setup
 
