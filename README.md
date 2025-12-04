@@ -2,6 +2,8 @@
 
 This is the frontend of the coffee shop store. It was used Vue default template
 
+This is a second test of webhooks
+
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
